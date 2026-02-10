@@ -1,0 +1,428 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #f8fafc, #f5f5f4, #e5e5e5);
+    color: #0f172a;
+}
+
+/* Header */
+.header {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #0f172a, #171717, #18181b);
+    color: white;
+}
+
+.header-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0);
+    background-size: 32px 32px;
+}
+
+.header-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.header-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: -0.025em;
+}
+
+.header-subtitle {
+    color: #94a3b8;
+    font-size: 1.125rem;
+    font-weight: 300;
+    margin-left: 3.5rem;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: box-shadow 0.3s;
+}
+
+.stat-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-header svg {
+    color: #cbd5e1;
+}
+
+.stat-value {
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: #0f172a;
+}
+
+/* Add Expense Button */
+.add-expense-btn {
+    width: 100%;
+    background: linear-gradient(to right, #1e293b, #0f172a);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    margin-bottom: 1.5rem;
+}
+
+.add-expense-btn:hover {
+    background: linear-gradient(to right, #334155, #1e293b);
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Expense Form */
+.expense-form {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+.expense-form.hidden {
+    display: none;
+}
+
+.expense-form h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0f172a;
+    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    background: #0f172a;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #1e293b;
+}
+
+/* Category Filter */
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid #e2e8f0;
+    background: white;
+    color: #334155;
+}
+
+.filter-btn:hover {
+    background: #f1f5f9;
+}
+
+.filter-btn.active {
+    background: #0f172a;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-color: #0f172a;
+}
+
+/* Expenses List */
+.expenses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.expense-item {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s;
+    animation: slideIn 0.3s ease-out;
+}
+
+.expense-item:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.expense-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.expense-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.category-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+    stroke-width: 2;
+}
+
+.expense-details {
+    flex: 1;
+}
+
+.expense-description {
+    font-weight: 500;
+    color: #0f172a;
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+}
+
+.expense-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.meta-separator {
+    color: #cbd5e1;
+}
+
+.expense-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.expense-amount {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #0f172a;
+    text-align: right;
+}
+
+.delete-btn {
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    color: #cbd5e1;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.expense-item:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Category Colors */
+.category-food { background: linear-gradient(to bottom right, #f59e0b, #ea580c); }
+.category-transport { background: linear-gradient(to bottom right, #3b82f6, #06b6d4); }
+.category-entertainment { background: linear-gradient(to bottom right, #a855f7, #ec4899); }
+.category-health { background: linear-gradient(to bottom right, #10b981, #059669); }
+.category-shopping { background: linear-gradient(to bottom right, #f43f5e, #dc2626); }
+.category-bills { background: linear-gradient(to bottom right, #64748b, #475569); }
+.category-other { background: linear-gradient(to bottom right, #6366f1, #8b5cf6); }
+
+/* Empty State */
+.empty-state {
+    background: white;
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.empty-state-text {
+    color: #cbd5e1;
+    font-size: 1.125rem;
+    font-weight: 300;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .header-subtitle {
+        font-size: 1rem;
+        margin-left: 2.5rem;
+    }
+    
+    .expense-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .expense-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .delete-btn {
+        opacity: 1;
+    }
+}
